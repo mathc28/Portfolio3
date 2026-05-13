@@ -1,0 +1,261 @@
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 0rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+}
+
+/* Base card */
+.hero-card {
+  padding: 1.25rem;
+  border-radius: 30px;
+}
+
+/* ── Row 1 : Heading ── */
+.hero-heading {
+  grid-column: 1 / 13;
+  grid-row: 1;
+  padding: 1.5rem;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2563eb; /* ton bleu vif déjà utilisé sur la carte status */
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ── Animation hero title (GSAP) ── */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em; /* évite que les jambages (p, g, y) soient coupés */
+}
+
+.line-inner {
+  display: block;
+  will-change: transform;
+}
+
+/* ── Row 2 : Now ── */
+.hero-now {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  background-color: #0f172a;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.hero-now .hero-label {
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.hero-now-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: auto;
+}
+
+.hero-now-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hero-now-available {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-now-current {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+}
+
+.hero-now-date {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* ── Row 2 : Stats ── */
+.hero-stats {
+  grid-column: 4 / 7;
+  grid-row: 2;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-stat-number {
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #0a1530;
+  line-height: 1;
+  margin: 0;
+}
+
+.hero-stat-sub {
+  font-size: 0.6875rem;
+  color: rgba(10, 21, 48, 0.5);
+  margin: 0.25rem 0 0;
+}
+
+/* ── Row 2 : Bio ── */
+.hero-bio {
+  grid-column: 7 / 13;
+  grid-row: 2;
+  background-color: #dbeafe;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.hero-bio-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #0a1530;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Row 3 : Statut ── */
+.hero-status {
+  grid-column: 1 / 4;
+  grid-row: 3;
+  background-color: #2563eb;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.hero-status-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0.25rem 0 0;
+}
+
+.hero-status-badge {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0a1530;
+  margin: 0;
+}
+
+/* ── Row 3 : Stack ── */
+.hero-stack {
+  grid-column: 4 / 10;
+  grid-row: 3;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-tag {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0a1530;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  background-color: #f5f3ec;
+}
+
+/* ── Row 3 : Contact ── */
+.hero-contact {
+  grid-column: 10 / 13;
+  grid-row: 3;
+  background-color: #ffffff;
+  border: 1px solid rgba(10, 21, 48, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.hero-contact:hover {
+  background-color: #f0f4ff;
+}
+
+.hero-contact-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.hero-contact-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0a1530;
+}
+
+.hero-contact-arrow {
+  font-size: 1.5rem;
+  color: #2563eb;
+}
+
+/* ── Labels communs ── */
+.hero-label {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(10, 21, 48, 0.4);
+  margin: 0 0 0.75rem;
+}
+
+.hero-label--blue {
+  color: #2563eb;
+}
+
+.hero-label--faded {
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.25rem;
+}
+
+.hero-heading .hero-label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}

@@ -1,0 +1,90 @@
+.skills {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 0rem 1.5rem;
+  scroll-margin-top: 3.5rem;
+}
+
+.skills-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #0a1530; /* bleu marine */
+  margin: 0 0 3rem;
+}
+
+.skills-title-accent {
+  color: #2563EB;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.skills-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.25rem;
+  min-height: 22rem;
+}
+
+.skills-card--blue  { background-color: #2563EB; }
+.skills-card--navy  { background-color: #0F172A; }
+.skills-card--white { background-color: #ffffff; border: 1px solid rgba(10, 21, 48, 0.1); }
+
+.skills-num {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.skills-card--blue  .skills-num { color: rgba(255, 255, 255, 0.45); }
+.skills-card--navy  .skills-num { color: rgba(255, 255, 255, 0.35); }
+.skills-card--white .skills-num { color: rgba(10, 21, 48, 0.35); }
+
+.skills-cat {
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
+}
+
+.skills-card--blue  .skills-cat { color: #ffffff; }
+.skills-card--navy  .skills-cat { color: #ffffff; }
+.skills-card--white .skills-cat { color: #0A1530; }
+
+.skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: auto;
+}
+
+.skills-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-top: 1px solid;
+}
+
+.skills-card--blue  .skills-item { color: #ffffff; border-top-color: rgba(255, 255, 255, 0.2); }
+.skills-card--navy  .skills-item { color: #ffffff; border-top-color: rgba(255, 255, 255, 0.15); }
+.skills-card--white .skills-item { color: #0A1530; border-top-color: rgba(10, 21, 48, 0.1); }
+
+.skills-arrow {
+  opacity: 0.6;
+  font-size: 1rem;
+}

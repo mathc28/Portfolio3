@@ -1,0 +1,176 @@
+.about {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 0rem 1.5rem;
+  scroll-margin-top: 3.5rem;
+}
+
+/* ── Title ── */
+.about-title{
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #0a1530; /* bleu marine */
+  margin: 0 0 3rem;
+}
+
+.about-title-accent {
+  color: #3D6AE8;
+}
+
+
+
+/* ── Grid ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 5fr 6fr;
+    align-items: stretch;
+  }
+}
+
+/* ── Bio card ── */
+.about-bio-card {
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about-bio-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.about-bio-primary {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0D1B36;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-bio-secondary {
+  font-size: 0.9375rem;
+  color: #6B7280;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Stats 2×2 grid ── */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* ── Shared card ── */
+.about-card {
+  border-radius: 1.25rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.about-card-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.about-card-value {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.about-card-dot {
+  display: inline-block;
+  margin-right: 0.1em;
+}
+
+.about-card-number {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+
+.about-card-sub {
+  font-size: 0.8125rem;
+  margin: 0.4rem 0 0;
+}
+
+/* ── Card variants ── */
+.about-card--blue {
+  background-color: #3D6AE8;
+}
+
+.about-card--blue .about-card-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-card--blue .about-card-value {
+  color: #ffffff;
+}
+
+.about-card--dark {
+  background-color: #0D1B36;
+}
+
+.about-card--dark .about-card-label {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.about-card--dark .about-card-value {
+  color: #ffffff;
+}
+
+.about-card--dark .about-card-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about-card--light {
+  background-color: #D6E4FF;
+}
+
+.about-card--light .about-card-label {
+  color: #3D6AE8;
+}
+
+.about-card--light .about-card-number {
+  color: #0D1B36;
+}
+
+.about-card--white {
+  background-color: #ffffff;
+}
+
+.about-card--white .about-card-label {
+  color: #9CA3AF;
+}
+
+.about-card--white .about-card-number {
+  color: #0D1B36;
+}
+
+.about-card--white .about-card-sub {
+  color: #9CA3AF;
+}

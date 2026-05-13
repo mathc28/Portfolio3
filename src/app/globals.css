@@ -1,0 +1,32 @@
+:root {
+  --cream: #F5F3EC;
+  --navy: #0A1530;
+  --blue: #2563EB;
+  --blue-light: #DBEAFE;
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--navy);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+.about-title,
+.skills-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 3rem;
+}

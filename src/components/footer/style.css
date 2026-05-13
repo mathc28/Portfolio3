@@ -1,0 +1,29 @@
+.footer {
+  border-top: 1px solid rgba(10, 21, 48, 0.1);
+}
+
+.footer-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy,
+.footer-tech {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.footer-copy {
+  color: rgba(10, 21, 48, 0.4);
+}
+
+.footer-tech {
+  color: rgba(10, 21, 48, 0.3);
+}
