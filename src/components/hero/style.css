@@ -236,6 +236,60 @@
   color: #2563eb;
 }
 
+/* ── Responsive ── */
+
+/* Tablet (768px – 1023px) : grille 6 colonnes simplifiée */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .hero-heading  { grid-column: 1 / -1; grid-row: auto; }
+  .hero-now      { grid-column: 1 / 4;  grid-row: auto; }
+  .hero-stats    { grid-column: 4 / 7;  grid-row: auto; }
+  .hero-bio      { grid-column: 1 / -1; grid-row: auto; }
+  .hero-status   { grid-column: 1 / 4;  grid-row: auto; }
+  .hero-contact  { grid-column: 4 / 7;  grid-row: auto; }
+  .hero-stack    { grid-column: 1 / -1; grid-row: auto; }
+
+  .hero-stat-number    { font-size: 3.5rem; }
+  .hero-status-title   { font-size: 2.25rem; }
+  .hero-status-badge   { font-size: 1.5rem; }
+}
+
+/* Mobile (< 768px) : colonne unique */
+@media (max-width: 767px) {
+  .hero{
+    padding: 1rem 0 ;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .hero-heading,
+  .hero-now,
+  .hero-stats,
+  .hero-bio,
+  .hero-status,
+  .hero-stack,
+  .hero-contact {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .hero-heading  { min-height: 200px; }
+  .hero-now      { min-height: auto; }
+  .hero-status   { min-height: auto; }
+
+  .hero-stat-number    { font-size: 3rem; }
+  .hero-status-title   { font-size: 1.75rem; }
+  .hero-status-badge   { font-size: 1.25rem; }
+  .hero-bio-text       { font-size: 1rem; }
+}
+
 /* ── Labels communs ── */
 .hero-label {
   font-size: 0.5625rem;

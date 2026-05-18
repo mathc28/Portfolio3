@@ -256,3 +256,14 @@
 .contact-submit:hover {
   background-color: #2563EB;
 }
+
+@media (max-width: 767px) {
+  .contact-info {
+    padding: 1.75rem;
+    min-height: auto;
+  }
+
+  .contact-form-card {
+    padding: 1.75rem;
+  }
+}

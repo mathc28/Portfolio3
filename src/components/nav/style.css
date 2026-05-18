@@ -133,3 +133,106 @@
 .nav-cv:hover {
   background-color: #2563eb;
 }
+
+/* ── Hamburger button ── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-burger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #0a1530;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.nav-burger--open .nav-burger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav-burger--open .nav-burger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-burger--open .nav-burger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile menu panel ── */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 1px solid rgba(10, 21, 48, 0.08);
+}
+
+.nav-mobile--open {
+  max-height: 400px;
+}
+
+.nav-mobile-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a1530;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(10, 21, 48, 0.06);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.nav-mobile-link:hover {
+  color: #2563eb;
+  padding-left: 2rem;
+}
+
+.nav-mobile-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .nav-burger {
+    display: flex;
+  }
+
+  .nav-mobile {
+    display: flex;
+  }
+
+  /* Masquer le lang button du header sur mobile (dupliqué dans le menu) */
+  .nav-actions .nav-lang {
+    display: none;
+  }
+
+  .nav-actions .nav-cv {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0 0 0 1rem;
+  }
+
+  .nav-logo img {
+    height: 3rem;
+  }
+}
