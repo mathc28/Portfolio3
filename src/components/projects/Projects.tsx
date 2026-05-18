@@ -7,6 +7,8 @@ import { ArchiveCard } from './ArchiveCard';
 import { ProjectDrawer } from './ProjectDrawer';
 import { SectionLabel } from '../label/Label';
 import './style.css';
+import { RevealTitle } from "../revealtitle/RevealTitle";
+
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -15,13 +17,13 @@ export function ProjectsSection() {
     <section id="section-03" className="projects">
       <SectionLabel num="03" label="PROJETS" />
 
-      <h2 className="projects-title">
-        <span className="line-mask">
-          <span className="line-inner">
-            Du <span className="projects-title-accent">concret.</span>
+      <RevealTitle className="section-title">
+          <span className="line-mask">
+            <span className="line-inner skills-title">
+              Du <span className="skills-title-accent">concret.</span>
+            </span>
           </span>
-        </span>
-      </h2>
+        </RevealTitle> 
 
       {/* ─── Featured ─── */}
       <div className="projects-featured">

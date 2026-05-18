@@ -14,7 +14,7 @@ const skills: Skill[] = [
   { num: "01", cat: "Front-End",     items: ["React & Next.js", "TypeScript", "JavaScript", "HTML / CSS"], variant: "blue" },
   { num: "02", cat: "Animation",    items: ["GSAP", "ScrollTrigger", "CSS animations"],                  variant: "navy" },
   { num: "03", cat: "CMS / Backend", items: ["WordPress", "PHP", "Thèmes sur mesure"],                         variant: "blue" },
-  { num: "04", cat: "Outils",       items: ["Git / GitHub", "Figma", "Vercel"],                  variant: "white" },
+  { num: "04", cat: "Outils",       items: ["GitHub", "Figma", "Vercel"],                  variant: "white" },
 ];
 
 export function SkillsSection() {

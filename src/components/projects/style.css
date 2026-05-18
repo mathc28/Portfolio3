@@ -6,8 +6,8 @@
 }
 
 .projects-title {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   line-height: 1;
   color: #0a1530;
   margin: 0 0 3rem;
