@@ -91,7 +91,7 @@ export function ContactSection() {
               Une idée<br />en tête ?
             </h3>
             <p className="contact-desc">
-              Réponse sous 48h. Pas de jargon.
+              Réponse sous 48h.
             </p>
 
             <div className="contact-process">
