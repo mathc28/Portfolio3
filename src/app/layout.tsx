@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Mathieu Cocu — Développeur Front-end",
   description:
-    "Dev front-end indépendant basé en France. Je transforme vos idées en interfaces React rapides, accessibles, soignées.",
+    "Dev front-end indépendant basé à Lyon, France. Je transforme vos idées en site rapides, accessibles, soignées pour indépendants et PME en France & Suisse. ",
 };
 
 export default function RootLayout({
