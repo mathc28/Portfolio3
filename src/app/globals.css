@@ -22,7 +22,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   min-width: 320px;
-  margin: none;
+  margin: 0;
 }
 
 .about-title,
