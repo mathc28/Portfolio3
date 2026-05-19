@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import './style.css';
 import Logo from "../../assets/logo-mc.png";
+import { useLang } from '@/context/LangContext';
+import { translations } from '@/data/translations';
 
-const NAV_ITEMS = ["À propos", "Compétences", "Projets", "Contact"];
-
-export function Nav({ lang, setLang }: { lang: "FR" | "EN"; setLang: (l: "FR" | "EN") => void }) {
+export function Nav() {
+  const { lang, setLang } = useLang();
+  const tr = translations[lang].nav;
   const [isOpen, setIsOpen] = useState(false);
 
   const close = () => setIsOpen(false);
@@ -20,7 +22,7 @@ export function Nav({ lang, setLang }: { lang: "FR" | "EN"; setLang: (l: "FR" | 
         </a>
 
         <div className="nav-links">
-          {NAV_ITEMS.map((item, i) => (
+          {tr.items.map((item, i) => (
             <a key={item} href={`#section-0${i + 1}`} className="nav-link">
               {item}
             </a>
@@ -30,7 +32,7 @@ export function Nav({ lang, setLang }: { lang: "FR" | "EN"; setLang: (l: "FR" | 
         <div className="nav-actions">
           <div className="nav-availability">
             <span className="nav-dot" />
-            Disponible
+            {tr.available}
           </div>
           <button
             onClick={() => setLang(lang === "FR" ? "EN" : "FR")}
@@ -54,7 +56,7 @@ export function Nav({ lang, setLang }: { lang: "FR" | "EN"; setLang: (l: "FR" | 
       </div>
 
       <div className={`nav-mobile${isOpen ? " nav-mobile--open" : ""}`} aria-hidden={!isOpen}>
-        {NAV_ITEMS.map((item, i) => (
+        {tr.items.map((item, i) => (
           <a
             key={item}
             href={`#section-0${i + 1}`}

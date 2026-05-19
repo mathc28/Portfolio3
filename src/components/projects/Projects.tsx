@@ -8,22 +8,25 @@ import { ProjectDrawer } from './ProjectDrawer';
 import { SectionLabel } from '../label/Label';
 import './style.css';
 import { RevealTitle } from "../revealtitle/RevealTitle";
-
+import { useLang } from '@/context/LangContext';
+import { translations } from '@/data/translations';
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { lang } = useLang();
+  const tr = translations[lang].projects;
 
   return (
     <section id="section-03" className="projects">
-      <SectionLabel num="03" label="PROJETS" />
+      <SectionLabel num="03" label={tr.sectionLabel} />
 
       <RevealTitle className="section-title">
-          <span className="line-mask">
-            <span className="line-inner skills-title">
-              Du <span className="skills-title-accent">concret.</span>
-            </span>
+        <span className="line-mask">
+          <span className="line-inner skills-title">
+            {tr.titleWord} <span className="skills-title-accent">{tr.titleAccent}</span>
           </span>
-        </RevealTitle> 
+        </span>
+      </RevealTitle>
 
       {/* ─── Featured ─── */}
       <div className="projects-featured">
@@ -38,7 +41,7 @@ export function ProjectsSection() {
 
       {/* ─── Séparateur ─── */}
       <div className="projects-separator">
-        <span className="projects-separator-label">Autres projets</span>
+        <span className="projects-separator-label">{tr.separator}</span>
       </div>
 
       {/* ─── Archive ─── */}

@@ -1,11 +1,12 @@
 'use client';
 
-
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { SectionLabel } from '../label/Label';
 import { RevealTitle } from "../revealtitle/RevealTitle";
 import './style.css';
+import { useLang } from '@/context/LangContext';
+import { translations } from '@/data/translations';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -27,13 +28,10 @@ const contactLinks = [
   },
 ];
 
-const steps = [
-  { num: '01', text: 'Réponse sous 48h' },
-  { num: '02', text: 'Appel découverte offert' },
-  { num: '03', text: 'Devis sous 5 jours' },
-];
-
 export function ContactSection() {
+  const { lang } = useLang();
+  const tr = translations[lang].contact;
+
   const [status, setStatus] = useState<FormStatus>('idle');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -66,20 +64,20 @@ export function ContactSection() {
   };
 
   const buttonText = {
-    idle: 'Envoyer →',
-    sending: 'Envoi en cours...',
-    success: '✓ Message envoyé',
-    error: 'Erreur — Réessayer',
+    idle: tr.send,
+    sending: tr.sending,
+    success: tr.sent,
+    error: tr.errorBtn,
   }[status];
 
   return (
     <section id="section-04" className="contact">
-      <SectionLabel num="04" label="CONTACT" />
+      <SectionLabel num="04" label={tr.sectionLabel} />
 
       <RevealTitle className="contact-title">
         <span className="line-mask">
           <span className="line-inner">
-            On se <span className="contact-title-accent">lance ?</span>
+            {tr.title} <span className="contact-title-accent">{tr.titleAccent}</span>
           </span>
         </span>
       </RevealTitle>
@@ -88,16 +86,14 @@ export function ContactSection() {
         <div className="contact-info">
           <div>
             <h3 className="contact-headline">
-              Une idée<br />en tête ?
+              {tr.headline1}<br />{tr.headline2}
             </h3>
-            <p className="contact-desc">
-              Réponse sous 48h.
-            </p>
+            <p className="contact-desc">{tr.desc}</p>
 
             <div className="contact-process">
-              <p className="contact-process-label">APRÈS L'ENVOI</p>
+              <p className="contact-process-label">{tr.processLabel}</p>
               <ul className="contact-process-list">
-                {steps.map((step) => (
+                {tr.steps.map((step) => (
                   <li key={step.num}>
                     <span>{step.num}</span> {step.text}
                   </li>
@@ -110,7 +106,7 @@ export function ContactSection() {
             {contactLinks.map((item) => (
               <li key={item.label} className="contact-link-row">
                 <span className="contact-link-label">{item.label}</span>
-                <a 
+                <a
                   href={item.href}
                   className="contact-link-value"
                   target={item.label === 'MAIL' ? '_self' : '_blank'}
@@ -126,12 +122,12 @@ export function ContactSection() {
         <div className="contact-form-card">
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-field">
-              <label htmlFor="name" className="contact-field-label">NOM</label>
+              <label htmlFor="name" className="contact-field-label">{tr.nameLabel}</label>
               <input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Nom"
+                placeholder={tr.namePlaceholder}
                 className="contact-input"
                 value={formData.name}
                 onChange={handleChange}
@@ -141,12 +137,12 @@ export function ContactSection() {
             </div>
 
             <div className="contact-field">
-              <label htmlFor="email" className="contact-field-label">EMAIL</label>
+              <label htmlFor="email" className="contact-field-label">{tr.emailLabel}</label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder={tr.emailPlaceholder}
                 className="contact-input"
                 value={formData.email}
                 onChange={handleChange}
@@ -155,12 +151,12 @@ export function ContactSection() {
             </div>
 
             <div className="contact-field contact-field--grow">
-              <label htmlFor="message" className="contact-field-label">MESSAGE</label>
+              <label htmlFor="message" className="contact-field-label">{tr.messageLabel}</label>
               <textarea
                 id="message"
                 name="message"
                 rows={5}
-                placeholder="Décrivez votre projet en quelques lignes : type de site, échéance, budget approximatif…"
+                placeholder={tr.messagePlaceholder}
                 className="contact-textarea"
                 value={formData.message}
                 onChange={handleChange}
@@ -179,13 +175,13 @@ export function ContactSection() {
 
             {status === 'success' && (
               <p className="contact-feedback contact-feedback--success">
-                Merci, votre message est bien arrivé. Je vous réponds sous 48h.
+                {tr.successMsg}
               </p>
             )}
 
             {status === 'error' && (
               <p className="contact-feedback contact-feedback--error">
-                Oups, le message n'a pas pu être envoyé. Vous pouvez aussi m'écrire directement à mathco.dev@gmail.com.
+                {tr.errorMsg}
               </p>
             )}
           </form>

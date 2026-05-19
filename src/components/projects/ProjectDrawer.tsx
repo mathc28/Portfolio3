@@ -1,6 +1,10 @@
+'use client';
+
 import * as Dialog from '@radix-ui/react-dialog';
 import { Project } from '../../data/projectsData';
 import Image from 'next/image';
+import { useLang } from '@/context/LangContext';
+import { translations } from '@/data/translations';
 
 type Props = {
   project: Project | null;
@@ -8,6 +12,9 @@ type Props = {
 };
 
 export function ProjectDrawer({ project, onClose }: Props) {
+  const { lang } = useLang();
+  const tr = translations[lang].drawer;
+
   return (
     <Dialog.Root open={!!project} onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
@@ -17,14 +24,14 @@ export function ProjectDrawer({ project, onClose }: Props) {
             <>
               <div className="drawer-header">
                 <Dialog.Title className="drawer-title">{project.title}</Dialog.Title>
-                <Dialog.Close className="drawer-close" aria-label="Fermer">
+                <Dialog.Close className="drawer-close" aria-label={tr.close}>
                   ✕
                 </Dialog.Close>
               </div>
 
               <div className="drawer-body">
                 <div className="drawer-image">
-                  <Image  src={project.image} alt={project.title} />
+                  <Image src={project.image} alt={project.title} />
                 </div>
 
                 {/* Métadonnées projet */}
@@ -38,13 +45,13 @@ export function ProjectDrawer({ project, onClose }: Props) {
                     )}
                     {project.year && (
                       <>
-                        <dt>Année</dt>
+                        <dt>{tr.year}</dt>
                         <dd>{project.year}</dd>
                       </>
                     )}
                     {project.role && (
                       <>
-                        <dt>Rôle</dt>
+                        <dt>{tr.role}</dt>
                         <dd>{project.role}</dd>
                       </>
                     )}
@@ -54,7 +61,7 @@ export function ProjectDrawer({ project, onClose }: Props) {
                 {/* Contexte */}
                 {project.context && (
                   <section className="drawer-section">
-                    <h4 className="drawer-section-title">Le besoin</h4>
+                    <h4 className="drawer-section-title">{tr.need}</h4>
                     <p>{project.context}</p>
                   </section>
                 )}
@@ -62,7 +69,7 @@ export function ProjectDrawer({ project, onClose }: Props) {
                 {/* Actions */}
                 {project.actions && project.actions.length > 0 && (
                   <section className="drawer-section">
-                    <h4 className="drawer-section-title">Ce que j'ai fait</h4>
+                    <h4 className="drawer-section-title">{tr.done}</h4>
                     <ul className="drawer-list">
                       {project.actions.map((action, i) => (
                         <li key={i}>{action}</li>
@@ -74,7 +81,7 @@ export function ProjectDrawer({ project, onClose }: Props) {
                 {/* Résultats */}
                 {project.results && project.results.length > 0 && (
                   <section className="drawer-section">
-                    <h4 className="drawer-section-title">Le résultat</h4>
+                    <h4 className="drawer-section-title">{tr.result}</h4>
                     <ul className="drawer-list">
                       {project.results.map((result, i) => (
                         <li key={i}>{result}</li>
@@ -95,13 +102,13 @@ export function ProjectDrawer({ project, onClose }: Props) {
 
                 {/* CTA */}
                 {project.link && project.link !== '#' && (
-                  <a 
+                  <a
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
                     className="drawer-cta"
                   >
-                    Voir le site en ligne ↗
+                    {tr.viewSite}
                   </a>
                 )}
               </div>

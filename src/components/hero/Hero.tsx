@@ -3,10 +3,15 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './style.css';
+import { useLang } from '@/context/LangContext';
+import { translations } from '@/data/translations';
 
 const stack = ["React", "Next.js", "TypeScript", "GSAP", "WordPress", "PHP", "Figma", "Vercel"];
 
 export function Hero() {
+  const { lang } = useLang();
+  const tr = translations[lang].hero;
+
   const line1Ref = useRef(null);
   const line2Ref = useRef(null);
 
@@ -34,49 +39,47 @@ export function Hero() {
               <span ref={line1Ref} className="line-inner">Mathieu Cocu,</span>
             </span>
             <span className="line-mask">
-              <span ref={line2Ref} className="line-inner">Développeur Web</span>
+              <span ref={line2Ref} className="line-inner">{tr.job}</span>
             </span>
           </h1>
         </div>
 
         {/* Row 2 — Now */}
         <div className="hero-card hero-now">
-          <p className="hero-label hero-label--faded">// EN CE MOMENT</p>
+          <p className="hero-label hero-label--faded">{tr.nowLabel}</p>
           <div className="hero-now-status">
             <span className="hero-now-pulse"></span>
-            <span className="hero-now-available">Disponible</span>
+            <span className="hero-now-available">{tr.available}</span>
           </div>
-          <p className="hero-now-current">Refonte du Portfolio</p>
-          <p className="hero-now-date">Mis à jour le 11 mai</p>
+          <p className="hero-now-current">{tr.currentWork}</p>
+          <p className="hero-now-date">{tr.updatedAt}</p>
         </div>
 
         {/* Row 2 — 15+ stats */}
         <div className="hero-card hero-stats">
-          <p className="hero-label">PROJETS</p>
+          <p className="hero-label">{tr.projectsLabel}</p>
           <div>
             <p className="hero-stat-number">15+</p>
-            <p className="hero-stat-sub">livrés en 2 ans</p>
+            <p className="hero-stat-sub">{tr.projectsSub}</p>
           </div>
         </div>
 
         {/* Row 2 — Bio */}
         <div className="hero-card hero-bio">
-          <p className="hero-label hero-label--blue">// HELLO</p>
-          <p className="hero-bio-text">
-            Je suis Mathieu, développeur web freelance basé à Lyon. Je construis des sites et applications rapides, accessibles et bien référencés pour les indépendants et les PME.
-          </p>
+          <p className="hero-label hero-label--blue">{tr.bioLabel}</p>
+          <p className="hero-bio-text">{tr.bio}</p>
         </div>
 
         {/* Row 3 — Statut */}
         <div className="hero-card hero-status">
-          <p className="hero-label hero-label--faded">Basé à</p>
+          <p className="hero-label hero-label--faded">{tr.basedLabel}</p>
           <p className="hero-status-title">Lyon,</p>
           <p className="hero-status-badge">France</p>
         </div>
 
         {/* Row 3 — Stack */}
         <div className="hero-card hero-stack">
-          <p className="hero-label">STACK PRINCIPALE</p>
+          <p className="hero-label">{tr.stackLabel}</p>
           <div className="hero-tags">
             {stack.map(s => (
               <span key={s} className="hero-tag">{s}</span>
@@ -86,7 +89,7 @@ export function Hero() {
 
         {/* Row 3 — Contact */}
         <a href="#section-04" className="hero-card hero-contact">
-          <p className="hero-label">ÉCRIVEZ MOI</p>
+          <p className="hero-label">{tr.contactLabel}</p>
           <div className="hero-contact-bottom">
             <span className="hero-contact-title">Contact</span>
             <span className="hero-contact-arrow">→</span>
