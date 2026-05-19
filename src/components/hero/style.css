@@ -261,7 +261,11 @@
 /* Mobile (< 768px) : colonne unique */
 @media (max-width: 767px) {
   .hero{
-    padding: 1rem 0 ;
+    padding: 1rem 1.5rem ;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 9vw, 6.5rem);
   }
 
   .hero-grid {
