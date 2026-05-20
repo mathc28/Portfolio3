@@ -30,17 +30,12 @@ export function Nav() {
         </div>
 
         <div className="nav-actions">
-          <div className="nav-availability">
-            <span className="nav-dot" />
-            {tr.available}
-          </div>
           <button
             onClick={() => setLang(lang === "FR" ? "EN" : "FR")}
             className="nav-lang"
           >
             {lang === "FR" ? "FR / EN" : "EN / FR"}
           </button>
-          <a href="#" className="nav-cv">CV ↓</a>
           <button
             className={`nav-burger${isOpen ? " nav-burger--open" : ""}`}
             onClick={() => setIsOpen(o => !o)}
