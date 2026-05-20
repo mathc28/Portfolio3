@@ -73,7 +73,6 @@ export function Nav() {
           >
             {lang === "FR" ? "FR / EN" : "EN / FR"}
           </button>
-          <a href="#" className="nav-cv" onClick={close}>CV ↓</a>
         </div>
       </div>
     </nav>
