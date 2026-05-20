@@ -11,8 +11,8 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <p className="footer-copy">Mathieu Cocu — 2026</p>
-        <p className="footer-tech">React & GSAP · {tr.rights}</p>
+        <p className="footer-copy">MC DEV — 2026</p>
+        <p className="footer-tech">{tr.rights}</p>
       </div>
     </footer>
   );
