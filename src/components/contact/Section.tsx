@@ -23,7 +23,7 @@ const contactLinks = [
   },
   {
     label: 'GITHUB',
-    text: 'github.com/mathieucocu',
+    text: 'github.com/mathc28',
     href: 'https://github.com/mathc28',
   },
 ];
