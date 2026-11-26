@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mathieu Cocu — Développeur Front-end",
+  title: "Mathieu Cocu — Développeur Web freelance à Lyon",
   description:
-    "Dev front-end indépendant basé à Lyon, France. Je transforme vos idées en site rapides, accessibles, soignées pour indépendants et PME en France & Suisse. ",
+    "Développeur web freelance à Lyon. Sites et applications React, Next.js, WordPress — pour indépendants et PME en France & Suisse.",
 };
 
 export default function RootLayout({

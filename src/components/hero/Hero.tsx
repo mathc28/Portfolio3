@@ -38,6 +38,7 @@ export function Hero() {
             <span className="line-mask">
               <span ref={line1Ref} className="line-inner">Mathieu Cocu,</span>
             </span>
+            {' '}
             <span className="line-mask">
               <span ref={line2Ref} className="line-inner">{tr.job}</span>
             </span>

@@ -170,16 +170,6 @@
 
 .archive-card:hover {
   border-color: rgba(37, 99, 235, 0.3);
-  transform: translateY(-2px);
-}
-
-.archive-card--no-link {
-  cursor: default;
-}
-
-.archive-card--no-link:hover {
-  transform: none;
-  border-color: rgba(10, 21, 48, 0.06);
 }
 
 .archive-card-header {
@@ -222,6 +212,54 @@
   padding: 0.2rem 0.4rem;
   border-radius: 12px;
   background-color: #f5f3ec;
+}
+
+.archive-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+.archive-card-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: transparent;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.archive-card-btn--site {
+  color: #2563eb;
+}
+
+.archive-card-btn--code {
+  color: #0a1530;
+}
+
+.archive-card-btn--site:hover,
+.archive-card-btn--site:focus-visible {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.archive-card-btn--code:hover,
+.archive-card-btn--code:focus-visible {
+  background: #0a1530;
+  border-color: #0a1530;
+  color: #ffffff;
+}
+
+.archive-card-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 /* ── Drawer (Radix) ── */
@@ -415,6 +453,29 @@
 
 .drawer-cta:hover {
   background: #2563eb;
+}
+
+.drawer-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.drawer-ctas .drawer-cta {
+  margin-top: 0;
+}
+
+.drawer-cta--secondary {
+  background: transparent;
+  color: #0a1530;
+  border: 1px solid #0a1530;
+}
+
+.drawer-cta--secondary:hover {
+  background: #0a1530;
+  color: #ffffff;
 }
 
 @media (max-width: 600px) {

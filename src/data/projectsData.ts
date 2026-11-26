@@ -1,5 +1,6 @@
 // data/projectsData.ts
 
+import PhotoFiduo from '../assets/photos/fiduo.png';
 import PhotoArb from '../assets/photos/arbauvergne.png';
 import PhotoPortfolio from '../assets/photos/portfolio.webp';
 import PhotoFdj from '../assets/photos/projet-fdj.png';
@@ -26,7 +27,8 @@ export type Project = {
   miniDescription: string;
   description: string;
   image: string | StaticImageData;
-  link: string;
+  link?: string;
+  repo?: string;
   technologies: string[];
   featured: boolean;
   // Enrichi pour featured uniquement
@@ -41,12 +43,39 @@ export type Project = {
 export const projects: Project[] = [
   // ─── FEATURED ───
   {
+    slug: 'fiduo',
+    title: 'Fiduo',
+    miniDescription: 'SaaS de cartes de fidélité digitales pour commerçants',
+    description: 'SaaS de cartes de fidélité digitales Apple Wallet et Google Wallet pour les commerces de proximité.',
+    image: PhotoFiduo,
+    link: 'https://fiduo.app',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Apple Wallet', 'Google Wallet'],
+    featured: true,
+    client: 'Projet personnel',
+    year: '2026',
+    role: 'Conception, architecture, développement full-stack',
+    context: "Les cartes de fidélité en carton se perdent, s'oublient au fond d'un portefeuille et ne permettent aucun lien avec le client. Fiduo les remplace par une carte qui vit dans le téléphone, sans application à installer, et qui remonte sur l'écran verrouillé quand le client passe près du commerce.",
+    actions: [
+      'Architecture multi-tenant sur Supabase avec Row Level Security pour isoler les données de chaque commerçant',
+      'Génération de cartes Apple Wallet (certificats signés) et Google Wallet, mises à jour en push à chaque passage',
+      "Scanner en caisse sous forme de PWA, avec appairage des appareils par code et révocation à distance",
+      'Moteur de points en SQL (triggers) : solde, limite de passages par jour, refus des soldes négatifs',
+      'Dashboard gérant, back-office plateforme, invitations par email et protection anti brute-force',
+    ],
+    results: [
+      'En production sur fiduo.app',
+      "Mise en route d'un commerce en 10 minutes, sans matériel ni application",
+      'Compatible iPhone et Android avec une seule base de code',
+    ],
+  },
+  {
     slug: 'arbauvergne',
     title: 'Arb\'Auvergne',
     miniDescription: 'Site WordPress sur mesure pour une entreprise d\'élagage',
     description: 'Création d\'un site pour un élagueur professionnel auvergnat. Site vitrine avec stratégie SEO pour les plus grandes villes auvergnates.',
     image: PhotoArb ,
     link: 'https://www.arbauvergne.fr',
+    repo: 'https://github.com/mathc28/arbauvergne',
     technologies: ['WordPress', 'PHP', 'CSS'],
     featured: true,
     client: "Arb'auvergne",
@@ -63,6 +92,7 @@ export const projects: Project[] = [
     description: 'Mon portfolio personnel construit en Next.js avec animations GSAP.',
     image: PhotoPortfolio,
     link: 'https://mathcoc.vercel.app',
+    repo: 'https://github.com/mathc28/Portfolio3',
     technologies: ['Next.js', 'React', 'TypeScript', 'GSAP'],
     featured: true,
     client: 'Projet personnel',
@@ -73,28 +103,13 @@ export const projects: Project[] = [
     results: [],
   },
   {
-    slug: 'footdujour',
-    title: 'Foot Du Jour',
-    miniDescription: 'Site dédié aux news football',
-    description: 'Refonte visuelle pour le site d\'un ami avec du contenu spécial football.',
-    image: PhotoFdj,
-    link: 'https://www.footdujour.fr',
-    technologies: ['React', 'CSS', 'JavaScript'],
-    featured: true,
-    client: 'Scrapster.io',
-    year: '2025',
-    role: 'Design & développement',
-    context: 'Le but est d\'avoir un site avec une lecture de l\'information claire et maximale pour les fans de football en recherches des dernières informations a ce sujet.',
-    actions: [],
-    results: [],
-  },
-  {
     slug: 'lapilli',
     title: 'Domaine Lapilli',
     miniDescription: 'Site vitrine pour un domaine viticole bio',
     description: 'Création d\'un site vitrine pour le jeune domaine Lapilli, un domaine situé en Auvergne producteur de vin bio.',
     image: PhotoLapilli,
     link: 'https://domaine-lapilli.com',
+    repo: 'https://github.com/mathc28/Lapilli',
     technologies: ['HTML', 'CSS'],
     featured: true,
     client: 'Domaine Lapilli',
@@ -123,12 +138,23 @@ export const projects: Project[] = [
 
   // ─── ARCHIVE ───
   {
+    slug: 'footdujour',
+    title: 'Foot Du Jour',
+    miniDescription: 'Site dédié aux news football',
+    description: 'Refonte visuelle pour le site d\'un ami avec du contenu spécial football.',
+    image: PhotoFdj,
+    link: 'https://www.footdujour.fr',
+    technologies: ['React', 'CSS', 'JavaScript'],
+    featured: false,
+  },
+  {
     slug: 'argentbank',
     title: 'Argent Bank',
     miniDescription: 'Interface bancaire avec authentification',
     description: 'App React/Redux avec authentification.',
     image: PhotoArgentbank,
     link: 'https://mc-argent-bank.vercel.app/',
+    repo: 'https://github.com/mathc28/argentBank2',
     technologies: ['React', 'Redux', 'SCSS'],
     featured: false,
   },
@@ -139,7 +165,8 @@ export const projects: Project[] = [
     description: 'Projet React avancé : application de location d\'appartements avec React Router, composants Accordion et Slideshow.',
     image: PhotoKasa,
     link: 'https://mc-kasa.vercel.app',
-    technologies: ['React', 'CSS'],
+    repo: 'https://github.com/mathc28/Kasa',
+    technologies: ['React', 'SCSS'],
     featured: false,
   },
   {
@@ -149,6 +176,7 @@ export const projects: Project[] = [
     description: 'Déboguer et finaliser le développement d\'un site one-page d\'une agence événementielle.',
     image: Photo724,
     link: 'https://mc-724events.vercel.app',
+    repo: 'https://github.com/mathc28/724events-p10',
     technologies: ['Chrome DevTools', 'JavaScript'],
     featured: false,
   },
@@ -159,6 +187,7 @@ export const projects: Project[] = [
     description: 'Optimisation du référencement d\'un portfolio de photographe avec amélioration de sa performance ainsi que de son accessibilité.',
     image: PhotoSeoportfolio,
     link: 'https://mc-ninacarducci.vercel.app/',
+    repo: 'https://github.com/mathc28/NinaCarducci',
     technologies: ['SEO', 'Google Lighthouse', 'Wave'],
     featured: false,
   },
@@ -168,8 +197,8 @@ export const projects: Project[] = [
     miniDescription: 'Planification d\'un site de gestion de menus',
     description: 'Planification du développement d\'un site de gestion de menus pour restaurateurs : rédaction des user stories, veille technologique et cahier des charges.',
     image: PhotoQwanta,
-    link: '#',
-    technologies: ['React', 'CSS'],
+    repo: 'https://github.com/mathc28/Qwenta',
+    technologies: ['Gestion de projet', 'Spécifications'],
     featured: false,
   },
   {
@@ -178,7 +207,7 @@ export const projects: Project[] = [
     miniDescription: 'Dynamisation d\'un portfolio en JavaScript',
     description: 'Utilisation de JavaScript pour dynamiser une page statique. Création d\'une page de connexion administrateur ainsi que la modale permettant d\'uploader de nouveaux projets.',
     image: PhotoArchiportfolio,
-    link: '#',
+    repo: 'https://github.com/mathc28/Portfolio_Sophie_Bluel',
     technologies: ['JavaScript', 'CSS'],
     featured: false,
   },
@@ -188,8 +217,8 @@ export const projects: Project[] = [
     miniDescription: 'Carrousel dynamique en React',
     description: 'Création d\'un carrousel dynamique React + Node.js.',
     image: PhotoPrint,
-    link: '#',
-    technologies: ['React', 'CSS'],
+    repo: 'https://github.com/mathc28/Print_It',
+    technologies: ['JavaScript', 'CSS'],
     featured: false,
   },
   {
@@ -198,7 +227,7 @@ export const projects: Project[] = [
     miniDescription: 'Site mobile-first pour restaurants parisiens',
     description: 'Développement d\'un site mobile-first qui répertorie les menus de restaurants gastronomiques parisiens.',
     image: PhotoOhmyfood,
-    link: '#',
+    repo: 'https://github.com/mathc28/Ohmyfood',
     technologies: ['HTML', 'SASS'],
     featured: false,
   },
@@ -209,6 +238,7 @@ export const projects: Project[] = [
     description: 'Intégration de la maquette Figma du site de Booki, un site de réservation en ligne d\'hébergement.',
     image: PhotoBooki,
     link: 'https://mc-booki.vercel.app',
+    repo: 'https://github.com/mathc28/Booki',
     technologies: ['HTML', 'CSS'],
     featured: false,
   },
@@ -219,6 +249,7 @@ export const projects: Project[] = [
     description: 'Mise à jour de la page Internet de Riding Cities, une association sportive qui promeut le skate en région.',
     image: PhotoRc,
     link: 'https://mc-riding-cities.vercel.app/',
+    repo: 'https://github.com/mathc28/Riding_Cities',
     technologies: ['HTML', 'CSS'],
     featured: false,
   },
@@ -229,6 +260,7 @@ export const projects: Project[] = [
     description: 'Première prise en main de Vue.js avec la création de cette petite To-do list.',
     image: PhotoTodo,
     link: 'https://mc-todolist.vercel.app',
+    repo: 'https://github.com/mathc28/todolist',
     technologies: ['Vue.js', 'CSS'],
     featured: false,
   },

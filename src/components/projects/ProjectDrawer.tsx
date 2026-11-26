@@ -101,15 +101,29 @@ export function ProjectDrawer({ project, onClose }: Props) {
                 </section>
 
                 {/* CTA */}
-                {project.link && project.link !== '#' && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="drawer-cta"
-                  >
-                    {tr.viewSite}
-                  </a>
+                {(project.link || project.repo) && (
+                  <div className="drawer-ctas">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="drawer-cta"
+                      >
+                        {tr.viewSite}
+                      </a>
+                    )}
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="drawer-cta drawer-cta--secondary"
+                      >
+                        {tr.viewCode}
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
             </>

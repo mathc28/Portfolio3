@@ -1,5 +1,5 @@
-// components/RevealTitle.jsx
 'use client';
+// components/RevealTitle.jsx
 
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';

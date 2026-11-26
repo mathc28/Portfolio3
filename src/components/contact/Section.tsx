@@ -19,7 +19,7 @@ const contactLinks = [
   {
     label: 'LINKEDIN',
     text: 'linkedin.com/in/mathieucocu',
-    href: 'https://linkedin.com/mathieucocu',
+    href: 'https://www.linkedin.com/in/mathieucocu',
   },
   {
     label: 'GITHUB',

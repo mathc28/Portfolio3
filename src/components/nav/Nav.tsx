@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import './style.css';
 import Logo from "../../assets/logo-mc.png";
 import { useLang } from '@/context/LangContext';
@@ -17,8 +18,8 @@ export function Nav() {
     <nav className="nav">
       <div className="nav-inner">
 
-        <a href="#" className="nav-logo" onClick={close}>
-          <img src={Logo.src} alt="logo MC Dev" />
+        <a href="#top" className="nav-logo" onClick={close} aria-label="Retour en haut de page">
+          <Image src={Logo} alt="logo MC Dev" />
         </a>
 
         <div className="nav-links">
